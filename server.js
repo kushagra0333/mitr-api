@@ -84,7 +84,7 @@ app.post('/api/device/trigger', (req, res) => {
     // Set device to triggered state (active for 5 minutes)
     deviceStates.set(deviceId, {
       triggered: true,
-      expires: Date.now() + 300000, // 5 minutes from now
+      expires: Date.now() + 30000000, // 5 minutes from now
       lastActive: new Date()
     });
 
@@ -92,7 +92,7 @@ app.post('/api/device/trigger', (req, res) => {
     res.json({ 
       message: 'Device triggered successfully', 
       status: 'active',
-      expiresIn: 300000
+      expiresIn: 30000000
     });
   } catch (err) {
     console.error('Trigger error:', err);
